@@ -1,0 +1,15 @@
+C:\GitHubZaloha\DataDownloader\DataDownloader\bin\Debug\net6.0\DataDownloader.exe
+C:\GitHubZaloha\DataDownloader\DataDownloader\bin\Debug\net6.0\DataDownloader.deps.json
+C:\GitHubZaloha\DataDownloader\DataDownloader\bin\Debug\net6.0\DataDownloader.runtimeconfig.json
+C:\GitHubZaloha\DataDownloader\DataDownloader\bin\Debug\net6.0\DataDownloader.dll
+C:\GitHubZaloha\DataDownloader\DataDownloader\bin\Debug\net6.0\DataDownloader.pdb
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.csproj.AssemblyReference.cache
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.AssemblyInfoInputs.cache
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.AssemblyInfo.cs
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.csproj.CoreCompileInputs.cache
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.dll
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\refint\DataDownloader.dll
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.pdb
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\DataDownloader.genruntimeconfig.cache
+C:\GitHubZaloha\DataDownloader\DataDownloader\obj\Debug\net6.0\ref\DataDownloader.dll
