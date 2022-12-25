@@ -14,14 +14,17 @@ namespace DataDownloader
     internal class ITNetwork
     {
 
-        //celé url na uživatele https://www.itnetwork.cz/portfolio/" + ID
+        //celé url na uživatele - https://www.itnetwork.cz/portfolio/" + ID
         public string CelaStranka { get; private set; }
+
         //string základu stránky (vždy stejný)
-        public string StrankaVzor { get; set; }
+        public string StrankaVzor { get; private set; }
+
         //Id aktuálně zpracovavaného uživatele
         public string Id { get; private set; }
+
         //seznam stahnutých uživatelů
-        public List<User> seznam;
+        public List<User> seznam { get; private set; }
 
         private HttpClient klient;
 
@@ -47,13 +50,13 @@ namespace DataDownloader
         /// Metoda začínající stahování dat uživatelů, pokud je url validní, předá její html kod metode VytahniData() a vrácený objekt User přidá do seznamu
         /// </summary>
         /// <param name="a">od jakého Id začít stahovat</param>
-        /// <param name="b">do jakého Id stahovat</param>
+        /// <param name="b">do jakého Id (včetně) se bude stahovat </param>
         public async void Stahuj(int a, int b)
         {
-          
+         
 
 
-            for (int i = a; i < b; i++)
+            for (int i = a; i < b+1; i++)
             {
 
                 Id = i.ToString();
@@ -104,7 +107,7 @@ namespace DataDownloader
                 string www = "";                //url www stránky uživatele, pokud ji má
                 int zkusenost = 0;              // zkusenost uživatele
                 int aura = 0;                   // aura uživatele
-                int? vek = null;                //věk uživatele, pokud nemá zadaný = null
+                int vek = -1;                   //věk uživatele, pokud nemá zadaný = -1
 
                 // hledání řádku s příslušnou hodnotou
                 while ((radek = reader.ReadLine()) != null)

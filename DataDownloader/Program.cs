@@ -19,20 +19,31 @@ DateTime start = DateTime.Now;
 stahovacIT.Stahuj(x, y);
 Console.ResetColor();
 
+SpravceDB spravceDatabaze = new SpravceDB(stahovacIT.seznam);
 
-using (StreamWriter sw = new StreamWriter("data.txt"))
-{
 
-    foreach (var item in stahovacIT.seznam)
-    {
-        sw.WriteLine(item.Jmeno + ";" + item.ObrazekWWW + ";" + item.Stranka + ";" + item.Id + ";" +
-            item.Vek + ";" + item.Zkusenost + ";" + item.Aura);
 
-    }
+spravceDatabaze.ZpracujData();
 
-    sw.Close();
-}
 DateTime ted = DateTime.Now;
 TimeSpan cas = ted - start;
 Console.WriteLine("HOTOVO za " + cas.TotalSeconds+ " sekund.");
 Console.WriteLine();
+
+
+
+
+
+
+//using (StreamWriter sw = new StreamWriter("data.txt"))
+//{
+
+//    foreach (var item in stahovacIT.seznam)
+//    {
+//        sw.WriteLine(item.Jmeno + ";" + item.ObrazekWWW + ";" + item.Stranka + ";" + item.Id + ";" +
+//            item.Vek + ";" + item.Zkusenost + ";" + item.Aura);
+
+//    }
+
+//    sw.Close();
+//}

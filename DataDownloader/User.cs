@@ -20,14 +20,14 @@
         public int Zkusenost { get; private set; }
 
         //věk uživatele, pokud ho má nastaven
-        public int? Vek{ get; private set; }
+        public int Vek{ get; private set; }
 
         //aura uživatele (Aura okolo člena se vypočítává na základě toho jak hodnotí ostatní. Kdo často chválí má pozitivní auru, kdo jen kritizuje má auru negativní.)
         public int Aura { get; private set; }
 
 
 
-        public User(string jmeno, string obrazekWWW, string stranka, int id, int? vek, int zkusenost, int aura)
+        public User(string jmeno, string obrazekWWW, string stranka, int id, int vek, int zkusenost, int aura)
         {
             Jmeno = jmeno;
             ObrazekWWW = obrazekWWW;
