@@ -9,17 +9,23 @@ namespace DataDownloader
 {
     internal class SpravceDB
     {
-
+        //connectionstring
         private string pripojovaciString;
+        //seznam uzivatelu stahnutý třídou ITNetwork
         private List<User> seznamITN; 
 
         public SpravceDB(List<User> seznamITN)
         {
-            pripojovaciString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\GITHUBZALOHA\\DATADOWNLOADER\\DATADOWNLOADER\\DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string adresar = Directory.GetCurrentDirectory();
+            pripojovaciString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + adresar + "\\Database.mdf;Integrated Security=True";
+
             this.seznamITN = seznamITN;
         }
 
 
+        /// <summary>
+        /// Metoda připojí program k databázi a uloží stažené hodnoty z ITnetwork
+        /// </summary>
         public void ZpracujData()
         {
             using (SqlConnection spojeni = new SqlConnection(pripojovaciString))
