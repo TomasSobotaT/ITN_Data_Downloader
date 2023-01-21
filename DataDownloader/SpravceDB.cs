@@ -11,14 +11,14 @@ namespace DataDownloader
     {
         //connectionstring
         private string pripojovaciString;
+
         //seznam uzivatelu stahnutý třídou ITNetwork
-        private List<User> seznamITN; 
+        private List<User> seznamITN;
 
         public SpravceDB(List<User> seznamITN)
         {
             string adresar = Directory.GetCurrentDirectory();
             pripojovaciString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + adresar + "\\Database.mdf;Integrated Security=True";
-
             this.seznamITN = seznamITN;
         }
 
@@ -67,6 +67,36 @@ namespace DataDownloader
            
         
         
+        }
+
+
+        public int VratPosledniId()
+        {
+            using (SqlConnection spojeni = new SqlConnection(pripojovaciString))
+            {
+
+                spojeni.Open();
+               
+
+
+                using (SqlCommand prikaz = new SqlCommand())
+                {
+                    prikaz.Connection = spojeni;
+
+                    prikaz.CommandText = "SELECT MAX([IdNaITN]) FROM [ITN_USERS]";
+
+                   var result = prikaz.ExecuteScalar();
+
+                    if (result is null)
+                    {
+                        return 0;
+                    }
+                    else
+                        return (int)result;
+                    
+
+                }
+            }
         }
 
     }

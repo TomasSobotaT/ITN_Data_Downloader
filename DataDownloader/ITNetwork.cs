@@ -157,11 +157,13 @@ namespace DataDownloader
                     vek = int.Parse(new string(dotaz));
                 }
 
+                if (radeksezkusenosti != "")
+                { 
                 int index = radeksezkusenosti.IndexOf("/");
                 string stringsezkusenosti = radeksezkusenosti.Substring(0, index);
                 var dotaz2 =  stringsezkusenosti.Where(char.IsDigit).ToArray();
                 zkusenost = int.Parse(new string(dotaz2));
-
+                }
 
                 aura = int.Parse(radeksaurou.Replace("<br><br></span>","").Replace("<span>",""));
 

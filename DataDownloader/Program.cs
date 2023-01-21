@@ -1,28 +1,42 @@
 ﻿using DataDownloader;
 
+ITNetwork stahovacIT = new ITNetwork();
+SpravceDB spravceDatabaze = new SpravceDB(stahovacIT.seznam);
 
 //Vypíše základní menu
 Console.SetWindowSize(100, Console.WindowHeight);
 Console.WriteLine("\r\n  _____        _          _____                      _                 _             __   ___  \r\n |  __ \\      | |        |  __ \\                    | |               | |           /_ | / _ \\ \r\n | |  | | __ _| |_ __ _  | |  | | _____      ___ __ | | ___   __ _  __| | ___ _ __   | || | | |\r\n | |  | |/ _` | __/ _` | | |  | |/ _ \\ \\ /\\ / / '_ \\| |/ _ \\ / _` |/ _` |/ _ \\ '__|  | || | | |\r\n | |__| | (_| | || (_| | | |__| | (_) \\ V  V /| | | | | (_) | (_| | (_| |  __/ |     | || |_| |\r\n |_____/ \\__,_|\\__\\__,_| |_____/ \\___/ \\_/\\_/ |_| |_|_|\\___/ \\__,_|\\__,_|\\___|_|     |_(_)___/ \r\n                                                                                               \r\n                                                                                               \r\n");
 Console.WriteLine();
-Console.Write("Formát stahování: |https://www.itnetwork.cz/portfolio/");
+Console.Write("Formát stahování: https://www.itnetwork.cz/portfolio/");
 Console.ForegroundColor = ConsoleColor.Green;
 Console.Write("ID");
 Console.ResetColor();
-Console.WriteLine("|");
+Console.WriteLine();
+Console.Write("Poslední stažené ID: ");
+Console.ForegroundColor = ConsoleColor.Magenta;
+try
+{   // vypíše poslední zapsané ID uživatele v databázi
+    Console.WriteLine(spravceDatabaze.VratPosledniId());
+}
+catch (Exception ex)
+{
+
+    Console.WriteLine("Nastala chyba při získávání posledního ID: " + ex.Message);
+}
+
+Console.ResetColor();
 Console.WriteLine();
 
-ITNetwork stahovacIT = new ITNetwork();
-int x = 0;
-int y = 100;
+int x;
+int y;
 
 //zadávání hodnot
-Console.Write("Zadejte číslo od kterého se bude ID stahovat (Defaultně: 0): ");
+Console.Write("Zadejte číslo od kterého se bude ID stahovat: ");
 while (!int.TryParse(Console.ReadLine(), out x))
 {
     Console.Write("Zadej platné číslo:");
 }
-Console.Write("Zadejte číslo do kterého se bude ID stahovat (Defaultně: 100): ");
+Console.Write("Zadejte číslo do kterého se bude ID stahovat: ");
 while (!int.TryParse(Console.ReadLine(), out y))
 {
     Console.Write("Zadej platné číslo:");
@@ -50,7 +64,7 @@ Console.ResetColor();
 // zapnutí zasání do databáze
 try
 {
-    SpravceDB spravceDatabaze = new SpravceDB(stahovacIT.seznam);
+    
     spravceDatabaze.ZpracujData();
     Console.WriteLine("Data úspěšně zapsána do databáze.");
 }
@@ -63,10 +77,10 @@ catch (Exception ex)
 Console.ResetColor();
 DateTime ted = DateTime.Now;
 TimeSpan cas = ted - start;
-Console.WriteLine("HOTOVO za " + String.Format("{0} minut a {1} vteřin", cas.Minutes, cas.Seconds) ); 
+Console.WriteLine("HOTOVO za " + String.Format("{0} hodin,{1} minut a {2} vteřin",cas.Hours, cas.Minutes, cas.Seconds));
 Console.ReadKey();
-
-
+Console.ReadKey();
+Console.ReadKey();
 
 
 
