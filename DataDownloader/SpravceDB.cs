@@ -87,12 +87,15 @@ namespace DataDownloader
 
                    var result = prikaz.ExecuteScalar();
 
-                    if (result is null)
+                    if (result == System.DBNull.Value)
                     {
                         return 0;
                     }
                     else
+                    {
                         return (int)result;
+                    }
+                        
                     
 
                 }
