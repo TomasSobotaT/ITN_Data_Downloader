@@ -7,3 +7,5 @@ The downloaded users are stored in the internal collection.<br>
 When the download is complete, it is saved to the database using ADO.NET.<br>
 The database must be in the program folder for the program to run correctly.<br>
 The data is further used in the <a href="https://github.com/TomasSobotaT/ITN_Data_Presenter"> ITN Data Presenter </a> project.<br>
+
+Documentation (CZ): <a href="https://tsobota.cz/C_ITNDataDownloader.html"> tsobota.cz/C_ITNDataDownloader.html<a>
